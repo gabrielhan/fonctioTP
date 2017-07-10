@@ -13,3 +13,17 @@ C:\Users\Gab\documents\visual studio 2017\Projects\ConsoleApplication1\ConsoleAp
 C:\Users\Gab\documents\visual studio 2017\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\Suave.dll.config
 C:\Users\Gab\documents\visual studio 2017\Projects\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
 C:\Users\Gab\documents\visual studio 2017\Projects\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\lab\IntechInfo\fonctioTP\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\lab\IntechInfo\fonctioTP\ConsoleApplication1\bin\Debug\ConsoleApplication1.XML
+C:\lab\IntechInfo\fonctioTP\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\lab\IntechInfo\fonctioTP\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\lab\IntechInfo\fonctioTP\ConsoleApplication1\bin\Debug\FSharp.Core.dll
+C:\lab\IntechInfo\fonctioTP\ConsoleApplication1\bin\Debug\Newtonsoft.Json.dll
+C:\lab\IntechInfo\fonctioTP\ConsoleApplication1\bin\Debug\Suave.dll
+C:\lab\IntechInfo\fonctioTP\ConsoleApplication1\bin\Debug\System.ValueTuple.dll
+C:\lab\IntechInfo\fonctioTP\ConsoleApplication1\bin\Debug\FSharp.Core.xml
+C:\lab\IntechInfo\fonctioTP\ConsoleApplication1\bin\Debug\Newtonsoft.Json.xml
+C:\lab\IntechInfo\fonctioTP\ConsoleApplication1\bin\Debug\Suave.xml
+C:\lab\IntechInfo\fonctioTP\ConsoleApplication1\obj\Debug\ConsoleApplication1.fsproj.ConsoleApplication1.exe.config
+C:\lab\IntechInfo\fonctioTP\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\lab\IntechInfo\fonctioTP\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
