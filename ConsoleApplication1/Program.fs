@@ -8,6 +8,16 @@ open Suave.Filters
 open Suave.Operators
 open Suave.Successful
 open System.IO
+open Suave.Json
+open System.Runtime.Serialization
+
+
+
+[<DataContract>]
+type Foo =
+  { [<field: DataMember(Name = "foo")>]
+    foo : string }
+
 
 [<EntryPoint>]
 let main argv = 
@@ -32,11 +42,19 @@ let main argv =
         OK (str + " created")
 
   let pPlay =
-        fun (str : String) -> 
-        let myState = File.ReadAllText("filez/" + str + ".txt" )
+        fun (game : String, player : String) -> 
+        let myState = File.ReadAllText("filez/" + game + ".txt" )
         OK myState
 
+  let pStop =
+        fun (game : String, player : String) -> 
+        let myState = File.ReadAllText("filez/" + game + ".txt" )
+        OK ("Player" + player + "stoped")
 
+  let pWatch =
+        fun (game : String, player : String) -> 
+        let myState = File.ReadAllText("filez/" + game + ".txt" )
+        OK myState
 
   let app =
       choose [
@@ -46,9 +64,9 @@ let main argv =
               path "/hello" >=> OK "why hey hello"
               path "/goodbye" >=> OK "Good bye GET"
               pathScan "/newgame/%s" startAnew 
-              pathScan "/pick/%s" pPlay 
-              pathScan "/stop/%s" pPlay
-              pathScan "/gameState/%s" pPlay 
+              pathScan "/pick/%s/%s" pPlay 
+              pathScan "/stop/%s/%s" pStop
+              pathScan "/gameState/%s/%s" pWatch 
             ]
         POST >=> choose
             [ path "/hello" >=> OK "Hello POST"
