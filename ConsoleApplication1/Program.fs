@@ -38,12 +38,11 @@ let main argv =
         let namesPlayers = getItemToList(data,4)
         let statusPlayers = getItemToList(data,5)
         let cardsMain = [getItemToList(data,0),getItemToList(data,1),getItemToList(data,2),getItemToList(data,3)]
-        let cardsPlayersTemp = [||]
-        //for i = 6 to 5 + namesPlayers.Length do
-       //  cardsPlayersTemp.SetValue(i,cardsPlayersTemp.Length)     
-        //let cardsPlayers = cardsPlayersTemp |> Array.toList
-        let result = [namesPlayers,statusPlayers,cardsMain]
-        result
+        let cardsPlayersTemp = [| for i in 1 .. namesPlayers.Length -> []  |]
+        for i = 0 to 0 + namesPlayers.Length - 1 do
+         cardsPlayersTemp.SetValue( getItemToList(data,i+6),i)
+        let cardsPlayers = cardsPlayersTemp |> Array.toList
+        [namesPlayers,statusPlayers,cardsMain,cardsPlayers]
 
   let getLines = 
     fun ( path : String ) ->
@@ -93,23 +92,12 @@ let main argv =
         fun (game : String, player : String) -> 
         let myState = File.ReadAllText("filez/" + game + ".txt" )
         OK myState
-   
-  let pJoin2 = 
-        fun (str : String )->
-        let lines = 
-            File.ReadAllLines("filez/" + str + ".txt" )
-            |> Array.map(fun line ->
-                let newLine = line
-                newLine )
-        let listLines = lines |> Array.toList
-        let item = listLines.Item(1)
-        listLines |> JSON
 
   let pJoin = 
         fun ( str : String ) ->
         let data = getData str
         let item = 
-          if data.Length > 0 then data.Item(0).ToValueTuple().Item1.Item(0)
+          if data.Length > 0 then data.Item(0).ToValueTuple().Item4.Item(0).Item(0)
           else "no Item"
         OK item
 
