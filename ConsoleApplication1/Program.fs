@@ -29,6 +29,38 @@ let main argv =
   //File.WriteAllText("temp.txt","toto D:")
   let bluePrint = File.ReadAllText("filez/temp.txt")
 
+  let getItemToList =
+    fun ( data : list<String>, i : int ) ->
+        data.Item(i).Split(';') |> Array.toList
+
+  let mapData = 
+    fun ( data : list<String> ) ->
+        let namesPlayers = getItemToList(data,4)
+        let statusPlayers = getItemToList(data,5)
+        let cardsMain = [getItemToList(data,0),getItemToList(data,1),getItemToList(data,2),getItemToList(data,3)]
+        let cardsPlayersTemp = [||]
+        //for i = 6 to 5 + namesPlayers.Length do
+       //  cardsPlayersTemp.SetValue(i,cardsPlayersTemp.Length)     
+        //let cardsPlayers = cardsPlayersTemp |> Array.toList
+        let result = [namesPlayers,statusPlayers,cardsMain]
+        result
+
+  let getLines = 
+    fun ( path : String ) ->
+      let lines = 
+        File.ReadAllLines(path)
+        |> Array.map (fun line ->
+        let newLine = line
+        newLine )
+      lines |> Array.toList  
+
+  let getData =
+    fun ( str : String ) ->
+      let path = "filez/" + str + ".txt"
+      let data path = 
+        if File.Exists(path) then mapData(getLines(path))
+        else []
+      data(path)
 
       // 'a -> WebPart
   let JSON v =
@@ -62,7 +94,7 @@ let main argv =
         let myState = File.ReadAllText("filez/" + game + ".txt" )
         OK myState
    
-  let pJoin = 
+  let pJoin2 = 
         fun (str : String )->
         let lines = 
             File.ReadAllLines("filez/" + str + ".txt" )
@@ -72,6 +104,14 @@ let main argv =
         let listLines = lines |> Array.toList
         let item = listLines.Item(1)
         listLines |> JSON
+
+  let pJoin = 
+        fun ( str : String ) ->
+        let data = getData str
+        let item = 
+          if data.Length > 0 then data.Item(0).ToValueTuple().Item1.Item(0)
+          else "no Item"
+        OK item
 
   let app =
       choose [
